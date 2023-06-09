@@ -171,12 +171,11 @@ internal class AmplifyTransferService : Service() {
                     override fun onServiceConnected(name: ComponentName, service: IBinder?) {
                         val binder = service as AmplifyTransferService.LocalBinder
                         boundService = binder.getService()
-                        startForeground(context)
                         boundService?.startUnbindCheck()
                     }
 
                     override fun onServiceDisconnected(name: ComponentName?) {
-                        stopForegroundAndUnbind(context)
+                        unbind(context)
                         boundService = null
                     }
                 }
@@ -208,6 +207,12 @@ internal class AmplifyTransferService : Service() {
             boundServiceConnection?.let { context.unbindService(it) }
             boundServiceConnection = null
             notification = null
+        }
+
+        @JvmStatic
+        fun unbind(context: Context) {
+            boundServiceConnection?.let { context.unbindService(it) }
+            boundServiceConnection = null
         }
 
         @VisibleForTesting
