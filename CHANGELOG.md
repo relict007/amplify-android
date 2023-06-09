@@ -1,4 +1,4 @@
-## [Release 1.38.5](https://github.com/aws-amplify/amplify-android/releases/tag/release_v1.38.5)
+## [Release 1.38.5-custom](https://github.com/aws-amplify/amplify-android/releases/tag/release_v1.38.5-custom)
 
 ### Bug Fixes
 - **api:** Handle delete request with no body ([#2405](https://github.com/aws-amplify/amplify-android/issues/2405))
@@ -8,7 +8,7 @@
 ### Miscellaneous
 - Enable TLSv1.2 support for pre Android Lollipop devices ([#3258](https://github.com/aws-amplify/aws-sdk-android/issues/3258))
 
-[See all changes between 1.38.4 and 1.38.5](https://github.com/aws-amplify/amplify-android/compare/release_v1.38.4...release_v1.38.5)
+[See all changes between 1.38.4 and 1.38.5-custom](https://github.com/aws-amplify/amplify-android/compare/release_v1.38.4...release_v1.38.5-custom)
 
 ## [Release 1.38.4](https://github.com/aws-amplify/amplify-android/releases/tag/release_v1.38.4)
 

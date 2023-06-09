@@ -42,51 +42,7 @@ afterEvaluate { project ->
     uploadArchives {
         repositories {
             if (project.hasProperty('SONATYPE_NEXUS_USERNAME')) {
-                mavenDeployer {
-                    beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
 
-                    pom.groupId = POM_GROUP
-                    pom.artifactId = POM_ARTIFACT_ID
-                    pom.version = project.ext.VERSION_NAME
-
-                    repository(url: getReleaseRepositoryUrl()) {
-                        authentication(userName: getRepositoryUsername(), password: getRepositoryPassword())
-                    }
-                    snapshotRepository(url: getSnapshotRepositoryUrl()) {
-                        authentication(userName: getRepositoryUsername(), password: getRepositoryPassword())
-                    }
-
-                    pom.project {
-                        name POM_NAME
-                        packaging POM_PACKAGING
-                        description POM_DESCRIPTION
-                        url POM_URL
-
-                        scm {
-                            url POM_SCM_URL
-                            connection POM_SCM_CONNECTION
-                            developerConnection POM_SCM_DEV_CONNECTION
-                        }
-
-                        licenses {
-                            license {
-                                name POM_LICENCE_NAME
-                                url POM_LICENCE_URL
-                                distribution POM_LICENCE_DIST
-                            }
-                        }
-
-                        developers {
-                            developer {
-                                id POM_DEVELOPER_ID
-                                organizationUrl POM_DEVELOPER_ORGANIZATION_URL
-                                roles {
-                                    role "developer"
-                                }
-                            }
-                        }
-                    }
-                }
             } else {
                 mavenInstaller {
                     pom.groupId = POM_GROUP
